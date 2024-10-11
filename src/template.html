@@ -8,20 +8,20 @@
 <body>
     <header>
         <div class="logo">
-
+            Welcome! Enter your city (or any city) below to get the weather forecast for that location.
         </div>
         <nav>
             <form action="">
                 <label for="cityInput">Insert location:</label>
-                <input type="text" id="cityInput">
-                <button type="button"></button>
+                <input type="text" id="cityInput" placeholder="Eg: 'London, UK' or 'Rome, Italy'">
+                <button type="submit">Search</button>
             </form>
         </nav>
     </header>
-    <main>
+    <main class="hidden">
         <h3></h3>
         <div class="card details"></div>
-        <div class="card hourly"></div>
+        <div class="card hourlyDiv"></div>
         <div class="card 7d"></div>
     </main>
 </body>

@@ -11,16 +11,41 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+form {
+  display: flex;
+  gap: 15px;
+}
+
+input {
+  font-size: inherit;
+}
+
+input::placeholder {
+  text-align: center;
+  font-size: initial;
+  transform: translateY(-3px);
 }
 
 
 header {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   div.logo {
     background-color: aquamarine;
     height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   nav {
@@ -35,32 +60,86 @@ header {
   }
 }
 
+main.hidden {
+  display: none;
+}
+
+main::after {
+  content: 'Rick-Phoenix / The Odin Project 2024 / Weather API and Icons by VisualCrossing and Freepik.';
+  text-align: center;
+  grid-column: 1 / 4;
+  margin-top: 30px;
+}
+
 main {
   background-color: beige;
-  height: 100vh;
+  height: auto;
   display: grid;
   grid: 5vh 1fr / 0.75fr 1.5fr 0.75fr;
-  padding: 15px 100px 30px;
+  padding: 15px 100px 70px;
   justify-items: center;
   gap: 30px;
+  width: 100%;
 
   h3 {
     grid-area: 1 / 1 / 2 / 4;
   }
 
   div.card {
-    display: flex;
     width: 100%;
     border-radius: 15px;
     background-color: lightgray;
     padding: 20px;
   }
 
-  div.hourly {
+  div.hourlyDiv {
+    display: grid;
+  }
+
+  div.details {
+    display: grid;
+
+    div.weatherDetail {
+      display: grid;
+      grid: 1fr / 1fr 1fr;
+    }
+
+    img.icon.details {
+      width: 50px;
+    }
+  }
+  
+
+  div.hourlyForecast {
     display: grid;
     grid: auto / repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
     height: 100px;
     width: 100%;
+    padding-right: 30px;
+
+    img.icon.hourly {
+      width: 50px;
+      grid-area: 1 / 1 / 3 / 2;
+    }
+
+    div.time {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
+    div.conditions {
+      grid-area: 1 / 3 / 2 / 4;
+      justify-self: end;
+      align-self: end;
+      padding-bottom: 10px;
+    }
+
+    div.temperature {
+      grid-area: 2 / 3 / 3 / 4;
+      align-self: start;
+    justify-self: end;
+    }
   }
 }
 
