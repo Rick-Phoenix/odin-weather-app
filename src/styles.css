@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Inter';
+  src: url(./Fonts/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  div.logo {
+    background-color: aquamarine;
+    height: 10vh;
+  }
+
+  nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-color: azure;
+    padding: 30px;
+    font-size: 25px;
+  }
+}
+
+main {
+  background-color: beige;
+  height: 100vh;
+  display: grid;
+  grid: 5vh 1fr / 0.75fr 1.5fr 0.75fr;
+  padding: 15px 100px 30px;
+  justify-items: center;
+  gap: 30px;
+
+  h3 {
+    grid-area: 1 / 1 / 2 / 4;
+  }
+
+  div.card {
+    display: flex;
+    width: 100%;
+    border-radius: 15px;
+    background-color: lightgray;
+    padding: 20px;
+  }
+
+  div.hourly {
+    display: grid;
+    grid: auto / repeat(3,1fr);
+    height: 100px;
+    width: 100%;
+  }
+}
+
