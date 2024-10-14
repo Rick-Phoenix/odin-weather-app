@@ -94,18 +94,34 @@ main {
 
   div.hourlyDiv {
     display: grid;
+    gap: 15px;
   }
 
-  div.details {
+  div.card.third {
     display: grid;
+    grid: repeat(5, 100px) / 1fr;
+    align-items: center;
 
     div.weatherDetail {
       display: grid;
-      grid: 1fr / 1fr 1fr;
+      grid: 1fr 1fr / 1fr 1fr;
+      align-items: center;
+      width: 100%;
     }
 
     img.icon.details {
-      width: 50px;
+      width: 60px;
+      grid-row: 1 / 3;
+    }
+
+    span.detailName {
+      grid-area: 1 / 2 / 2 / 3;
+      text-align: end;
+    }
+
+    span.detailValue {
+      grid-area: 2 / 2 / 3 / 3;
+      text-align: end;
     }
   }
   

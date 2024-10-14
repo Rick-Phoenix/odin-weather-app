@@ -1,6 +1,7 @@
 import "./styles.css";
 import * as nodes from "./selectors";
 import icon from "./Icons/Weather/partly-cloudy-day.svg"
+import { node } from "webpack";
 
 nodes.form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -17,6 +18,7 @@ async function getWeatherData(place) {
   console.log(weatherData);
   renderHourly(weatherData);
   renderDetails(weatherData);
+  // render14D(weatherData);
 } 
 
 function getIcon(name, type, format) {
@@ -56,7 +58,7 @@ function renderHourly(data) {
 }
 
 function renderDetails(data) {
-  nodes.details.innerHTML = '';
+  nodes.thirdCard.innerHTML = '';
   const iconsArr = {
     feelslike: 'Perceived Temperature', windspeed: 'Wind Speed', humidity: 'Relative Humidity', precipprob: 'Precipitation %', uvindex: 'UV Intensity',
   };
@@ -67,16 +69,40 @@ function renderDetails(data) {
     const weatherDetail = document.createElement('div');
     weatherDetail.classList.add('weatherDetail');
     const icon = getIcon(description, 'details', 'png');
-    const detail = document.createElement('div');
-    detail.classList.add('detail');
-    detail.textContent = `${description}: ${APIvalue}`;
+    const detailName = document.createElement('span');
+    detailName.className = 'detailName';
+    detailName.textContent = description;
+    const detailValue = document.createElement('span');
+    detailValue.className = 'detailValue';
+    detailValue.textContent = APIvalue;
 
-    weatherDetail.append(icon, detail);
-    nodes.details.append(weatherDetail);
+    weatherDetail.append(icon, detailName, detailValue);
+    nodes.thirdCard.append(weatherDetail);
   }
 }
 
 
-  
+function render14D(data) {
+  // Icon, description, min-max temp
+  nodes.firstCard.innerHTML = '';
+  for (const day in data.days) if (day > 0) {
+    const currentDay = data.days[day];
+    // const {icon: iconName, datetime, conditions, tempmin, tempmax} = currentDay;
+    // const formattedDate = datetime.match(/\d\d-\d\d$/)[0];
+    // const icon = getIcon(iconName, '14D', 'svg');
+    const dailyForecast = document.createElement('div');
+    dailyForecast.classList.add('singleDailyDiv');
+    const dateSpan = document.createElement('span');
+    // dateSpan.textContent = formattedDate;
+    const conditionsSpan = document.createElement('span');
+    // conditionsSpan.textContent = conditions;
+    const tempSpan = document.createElement('span');
+    // tempSpan.textContent = `${tempmin}°-${tempmax}°`;
+
+    dailyForecast.append(dateSpan, conditionsSpan, tempSpan);
+    nodes.firstCard.append(dailyForecast);
+
+  }
+}
 
   
