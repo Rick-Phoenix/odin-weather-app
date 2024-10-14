@@ -124,7 +124,8 @@ main {
 
   div.card.third {
     display: grid;
-    grid: repeat(5, 100px) / 1fr;
+    grid-area: 2 / 1 / 3 / 4   ;
+    grid: 1fr / repeat(5,1fr);
     align-items: center;
 
     div.weatherDetail {
