@@ -69,6 +69,7 @@ body::after {
   text-align: center;
   grid-column: 1 / 4;
   margin-top: 30px;
+  margin-bottom: 30px;
   display: var(--pseudo, none);
 }
 
@@ -97,7 +98,7 @@ main {
   div.card.dailyDiv {
     display: grid;
     gap: 10px;
-    grid-area: 5 / 1 / 6 / 3;
+    grid-area: 5 / 1 / 6 / 4;
 
     div.singleDailyDiv {
       display: grid;
@@ -124,7 +125,7 @@ main {
     display: grid;
     grid: repeat(auto-fit, 100px) / 1fr 1fr;
     gap: 15px;
-    grid-area: 3 / 1 / 4 / 3;
+    grid-area: 3 / 1 / 4 / 4;
 
     div.hourlyForecast {
       display: grid;
@@ -164,6 +165,7 @@ main {
     grid-area: 2 / 1 / 3 / 4   ;
     grid: 1fr / repeat(5,1fr);
     align-items: center;
+    gap: 40px;
 
     div.weatherDetail {
       display: grid;
