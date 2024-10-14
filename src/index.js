@@ -92,9 +92,12 @@ function render14D(data) {
     dailyForecast.classList.add('singleDailyDiv');
     const dateSpan = document.createElement('span');
     dateSpan.textContent = formattedDate;
+    dateSpan.className = 'date';
     const conditionsSpan = document.createElement('span');
+    conditionsSpan.classList.add('conditions');
     conditionsSpan.textContent = conditions;
     const tempSpan = document.createElement('span');
+    tempSpan.classList.add('temperature');
     tempSpan.textContent = `${tempmin}°-${tempmax}°`;
 
     dailyForecast.append(icon, dateSpan, conditionsSpan, tempSpan);
