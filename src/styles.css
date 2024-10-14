@@ -64,11 +64,12 @@ main.hidden {
   display: none;
 }
 
-main::after {
+body::after {
   content: 'Rick-Phoenix / The Odin Project 2024 / Weather API by VisualCrossing / Icons by VisualCrossing and Freepik.';
   text-align: center;
   grid-column: 1 / 4;
   margin-top: 30px;
+  display: var(--pseudo, none);
 }
 
 main {
@@ -93,7 +94,7 @@ main {
     width: 100%;
   }
 
-  div.card.first {
+  div.card.dailyDiv {
     display: grid;
     gap: 10px;
     grid-area: 5 / 1 / 6 / 3;
@@ -124,9 +125,41 @@ main {
     grid: repeat(auto-fit, 100px) / 1fr 1fr;
     gap: 15px;
     grid-area: 3 / 1 / 4 / 3;
+
+    div.hourlyForecast {
+      display: grid;
+      grid: auto / repeat(3,1fr);
+      align-items: center;
+      justify-items: center;
+      height: 100px;
+      width: 100%;
+      padding-right: 30px;
+  
+      img.icon.hourly {
+        width: 50px;
+        grid-area: 1 / 1 / 3 / 2;
+      }
+  
+      div.time {
+        grid-area: 1 / 2 / 3 / 3;
+      }
+  
+      div.conditions {
+        grid-area: 1 / 3 / 2 / 4;
+        justify-self: end;
+        align-self: end;
+        padding-bottom: 10px;
+      }
+  
+      div.temperature {
+        grid-area: 2 / 3 / 3 / 4;
+        align-self: start;
+      justify-self: end;
+      }
+    }
   }
 
-  div.card.third {
+  div.card.detailsDiv {
     display: grid;
     grid-area: 2 / 1 / 3 / 4   ;
     grid: 1fr / repeat(5,1fr);
@@ -152,39 +185,6 @@ main {
     span.detailValue {
       grid-area: 2 / 2 / 3 / 3;
       text-align: end;
-    }
-  }
-  
-
-  div.hourlyForecast {
-    display: grid;
-    grid: auto / repeat(3,1fr);
-    align-items: center;
-    justify-items: center;
-    height: 100px;
-    width: 100%;
-    padding-right: 30px;
-
-    img.icon.hourly {
-      width: 50px;
-      grid-area: 1 / 1 / 3 / 2;
-    }
-
-    div.time {
-      grid-area: 1 / 2 / 3 / 3;
-    }
-
-    div.conditions {
-      grid-area: 1 / 3 / 2 / 4;
-      justify-self: end;
-      align-self: end;
-      padding-bottom: 10px;
-    }
-
-    div.temperature {
-      grid-area: 2 / 3 / 3 / 4;
-      align-self: start;
-    justify-self: end;
     }
   }
 }

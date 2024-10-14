@@ -17,6 +17,7 @@ async function getWeatherData(place) {
   renderHourly(weatherData);
   renderDetails(weatherData);
   render14D(weatherData);
+  nodes.body.style.setProperty('--pseudo', 'block');
 } 
 
 function getIcon(name, type, format) {
@@ -56,7 +57,7 @@ function renderHourly(data) {
 }
 
 function renderDetails(data) {
-  nodes.thirdCard.innerHTML = '';
+  nodes.detailsDiv.innerHTML = '';
   const iconsArr = {
     feelslike: 'Perceived Temperature', windspeed: 'Wind Speed', humidity: 'Relative Humidity', precipprob: 'Precipitation %', uvindex: 'UV Intensity',
   };
@@ -75,14 +76,14 @@ function renderDetails(data) {
     detailValue.textContent = APIvalue;
 
     weatherDetail.append(icon, detailName, detailValue);
-    nodes.thirdCard.append(weatherDetail);
+    nodes.detailsDiv.append(weatherDetail);
   }
 }
 
 
 function render14D(data) {
   // Icon, description, min-max temp
-  nodes.firstCard.innerHTML = '';
+  nodes.dailyDiv.innerHTML = '';
   for (const day in data.days) if (day > 0) {
     const currentDay = data.days[day];
     const {icon: iconName, datetime, conditions, tempmin, tempmax} = currentDay;
@@ -101,9 +102,16 @@ function render14D(data) {
     tempSpan.textContent = `${tempmin}°-${tempmax}°`;
 
     dailyForecast.append(icon, dateSpan, conditionsSpan, tempSpan);
-    nodes.firstCard.append(dailyForecast);
+    nodes.dailyDiv.append(dailyForecast);
 
   }
 }
 
+
+function renderFooter() {
+  const footer = document.createElement('div');
+  footer.classList.add('footer');
+  footer.textContent = 'Rick-Phoenix / The Odin Project 2024 / Weather API by VisualCrossing / Icons by VisualCrossing and Freepik.';
+  nodes.main.append(footer);
+}
   
