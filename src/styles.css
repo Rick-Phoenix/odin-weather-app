@@ -65,7 +65,7 @@ main.hidden {
 }
 
 main::after {
-  content: 'Rick-Phoenix / The Odin Project 2024 / Weather API and Icons by VisualCrossing and Freepik.';
+  content: 'Rick-Phoenix / The Odin Project 2024 / Weather API by VisualCrossing / Icons by VisualCrossing and Freepik.';
   text-align: center;
   grid-column: 1 / 4;
   margin-top: 30px;
