@@ -1,7 +1,5 @@
 import "./styles.css";
 import * as nodes from "./selectors";
-import icon from "./Icons/Weather/partly-cloudy-day.svg"
-import { node } from "webpack";
 
 nodes.form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -18,7 +16,7 @@ async function getWeatherData(place) {
   console.log(weatherData);
   renderHourly(weatherData);
   renderDetails(weatherData);
-  // render14D(weatherData);
+  render14D(weatherData);
 } 
 
 function getIcon(name, type, format) {
@@ -87,19 +85,19 @@ function render14D(data) {
   nodes.firstCard.innerHTML = '';
   for (const day in data.days) if (day > 0) {
     const currentDay = data.days[day];
-    // const {icon: iconName, datetime, conditions, tempmin, tempmax} = currentDay;
-    // const formattedDate = datetime.match(/\d\d-\d\d$/)[0];
-    // const icon = getIcon(iconName, '14D', 'svg');
+    const {icon: iconName, datetime, conditions, tempmin, tempmax} = currentDay;
+    const formattedDate = datetime.match(/\d\d-\d\d$/)[0];
+    const icon = getIcon(iconName, '14D', 'svg');
     const dailyForecast = document.createElement('div');
     dailyForecast.classList.add('singleDailyDiv');
     const dateSpan = document.createElement('span');
-    // dateSpan.textContent = formattedDate;
+    dateSpan.textContent = formattedDate;
     const conditionsSpan = document.createElement('span');
-    // conditionsSpan.textContent = conditions;
+    conditionsSpan.textContent = conditions;
     const tempSpan = document.createElement('span');
-    // tempSpan.textContent = `${tempmin}°-${tempmax}°`;
+    tempSpan.textContent = `${tempmin}°-${tempmax}°`;
 
-    dailyForecast.append(dateSpan, conditionsSpan, tempSpan);
+    dailyForecast.append(icon, dateSpan, conditionsSpan, tempSpan);
     nodes.firstCard.append(dailyForecast);
 
   }

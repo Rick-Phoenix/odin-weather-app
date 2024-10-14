@@ -6,4 +6,4 @@ export const hourlyDiv = document.querySelector('.hourlyDiv');
 export const main = document.querySelector('main');
 export const logo = document.querySelector('div.logo');
 export const thirdCard = document.querySelector('div.card.third');
-// export const firstCard = document.querySelector('div.card.first');
+export const firstCard = document.querySelector('div.card.first');
