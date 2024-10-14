@@ -75,7 +75,7 @@ main {
   background-color: beige;
   height: auto;
   display: grid;
-  grid: 5vh 1fr / 0.75fr 1.5fr 0.75fr;
+  grid: auto 20vh auto 5vh 1fr / 1fr 1fr;
   padding: 15px 100px 70px;
   justify-items: center;
   gap: 30px;
@@ -90,11 +90,13 @@ main {
     border-radius: 15px;
     background-color: lightgray;
     padding: 20px;
+    width: 100%;
   }
 
   div.card.first {
     display: grid;
     gap: 10px;
+    grid-area: 5 / 1 / 6 / 3;
 
     div.singleDailyDiv {
       display: grid;
@@ -119,7 +121,9 @@ main {
 
   div.hourlyDiv {
     display: grid;
+    grid: repeat(auto-fit, 100px) / 1fr 1fr;
     gap: 15px;
+    grid-area: 3 / 1 / 4 / 3;
   }
 
   div.card.third {
