@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestest Weather App</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header>
+        <div class="logo">
+            Welcome! Enter your city (or any city) below to get the weather forecast for that location.
+        </div>
+        <nav>
+            <form action="">
+                <label for="cityInput">Insert location:</label>
+                <input type="text" id="cityInput" placeholder="Eg: 'London, UK' or 'Rome, Italy'">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+    <main class="hidden">
+        <h3 class="title"></h3>
+        <div class="card dailyDiv"></div>
+        <div class="card hourlyDiv"></div>
+        <h3 class="daily">Daily forecast for the next 14 days</h3>
+        <div class="card detailsDiv"></div>
+    </main>
+</body>
+</html>
