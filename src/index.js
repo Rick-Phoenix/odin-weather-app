@@ -64,12 +64,18 @@ function renderHourly(data) {
 function renderDetails(data) {
   nodes.detailsDiv.innerHTML = '';
   const iconsArr = {
-    feelslike: 'Perceived Temperature', windspeed: 'Wind Speed', humidity: 'Relative Humidity', precipprob: 'Precipitation %', uvindex: 'UV Intensity',
-  };
+    'Perceived Temperature': {APIValue: 'feelslike', unit: '°'},
+    'Wind Speed': {APIValue: 'windspeed', unit: ' km/h'},
+    'Relative Humidity': {APIValue: 'humidity', unit: '%'},
+    'Precipitation Probability': {APIValue: 'precipprob', unit: '%'},
+    'UV Intensity': {APIValue: 'uvindex', unit: '/11'},
+};
 
   for (const element in iconsArr) {
-    const description = iconsArr[element];
-    const APIvalue = data.days[0][element];
+    console.log(iconsArr[element].APIValue);
+    const description = element;
+    const APIvalue = data.days[0][iconsArr[element].APIValue];
+    const unit = iconsArr[element].unit;
     const weatherDetail = document.createElement('div');
     weatherDetail.classList.add('weatherDetail');
     const icon = getIcon(description, 'details', 'png');
@@ -78,7 +84,7 @@ function renderDetails(data) {
     detailName.textContent = description;
     const detailValue = document.createElement('span');
     detailValue.className = 'detailValue';
-    detailValue.textContent = APIvalue;
+    detailValue.textContent = APIvalue + unit;
 
     weatherDetail.append(icon, detailName, detailValue);
     nodes.detailsDiv.append(weatherDetail);
