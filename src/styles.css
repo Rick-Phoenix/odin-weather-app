@@ -99,6 +99,7 @@ main {
     background-color: #eaeaea;
     padding: 20px;
     width: 100%;
+    box-shadow: inset 1px 0px 20px lightgrey;
   }
 
   div.dailyDiv::before {
@@ -113,12 +114,20 @@ main {
 
   div.singleDailyDiv::after {
     content: '';
-    background: var(--show, linear-gradient(to right, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%, rgba(0, 0, 255, 0) 100%));
     position: absolute;
     height: 2px;
     width: calc(100% + 15px);
     left: -7.5px;
     bottom: -7.5px;
+  }
+
+  div.singleDailyDiv:nth-child(odd)::after {
+    background: var(--show, linear-gradient(to right, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%));
+
+  }
+
+  div.singleDailyDiv:nth-child(even)::after {
+    background: var(--show, linear-gradient(to left, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%));
   }
 
   div.card.dailyDiv {
@@ -165,12 +174,20 @@ main {
 
   div.hourlyForecast::after {
     content: '';
-    background: var(--show, linear-gradient(to right, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%, rgba(0, 0, 255, 0) 100%));
     position: absolute;
     height: 2px;
     width: calc(100% + 15px);
     left: -7.5px;
     bottom: -7.5px;
+  }
+
+  div.hourlyForecast:nth-child(odd)::after {
+    background: var(--show, linear-gradient(to right, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%));
+
+  }
+
+  div.hourlyForecast:nth-child(even)::after {
+    background: var(--show, linear-gradient(to left, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%));
   }
 
 

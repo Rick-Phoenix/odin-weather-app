@@ -109,7 +109,7 @@ function render14D(data) {
     conditionsSpan.textContent = conditions;
     const tempSpan = document.createElement('span');
     tempSpan.classList.add('temperature');
-    tempSpan.textContent = `${tempmin}°-${tempmax}°`;
+    tempSpan.textContent = `${tempmin}° - ${tempmax}°`;
 
     if (data.days.indexOf(currentDay) == 13 || data.days.indexOf(currentDay) == 14) {
       dailyForecast.style.setProperty('--show', 'transparent');
