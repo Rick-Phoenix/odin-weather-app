@@ -35,6 +35,7 @@ function renderHourly(data) {
   nodes.hourlyDiv.innerHTML = '';
   nodes.main.classList.remove('hidden');
   const currentHour = new Date().getHours();
+  const totalCells = 24 - currentHour;
   for (const hour in data.days[0].hours) {
     if (hour >= currentHour) {
       const hourlyForecastDiv = document.createElement('div');
@@ -49,6 +50,10 @@ function renderHourly(data) {
       const temperature = document.createElement('div');
       temperature.classList.add('temperature');
       temperature.textContent = data.days[0].hours[hour].temp + '°';
+
+      if (hour == 23 || totalCells % 2 == 0 && hour == 22) {
+        hourlyForecastDiv.style.setProperty('--show', 'transparent')
+      }
 
       hourlyForecastDiv.append(icon, time, conditions, temperature);
       nodes.hourlyDiv.append(hourlyForecastDiv);
