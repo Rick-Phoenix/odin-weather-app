@@ -121,11 +121,32 @@ main {
 
   }
 
+  div.hourlyDiv::before {
+    content: '';
+    background-color: red;
+    position: absolute;
+    height: calc(100% - 30px);
+    top: 15px;
+    width: 2px;
+    left: 50%;
+  }
+
+  div.hourlyForecast::after {
+    content: '';
+    background-color: red;
+    position: absolute;
+    height: 2px;
+    width: calc(100% + 15px);
+    left: -7.5px;
+    bottom: -7.5px;
+  }
+
   div.hourlyDiv {
     display: grid;
     grid: repeat(auto-fit, 100px) / 1fr 1fr;
     gap: 15px;
     grid-area: 3 / 1 / 4 / 4;
+    position: relative;
 
     div.hourlyForecast {
       display: grid;
@@ -135,6 +156,7 @@ main {
       height: 100px;
       width: 100%;
       padding-right: 30px;
+      position: relative;
   
       img.icon.hourly {
         width: 50px;
