@@ -14,9 +14,10 @@ async function getWeatherData(place) {
   .catch((error) => console.log(error))
 
   console.log(weatherData);
+  render14D(weatherData);
   renderHourly(weatherData);
   renderDetails(weatherData);
-  render14D(weatherData);
+  
   nodes.body.style.setProperty('--pseudo', 'block');
 } 
 
@@ -51,7 +52,7 @@ function renderHourly(data) {
       temperature.classList.add('temperature');
       temperature.textContent = data.days[0].hours[hour].temp + '°';
 
-      if (hour == 23 || totalCells % 2 == 0 && hour == 22) {
+      if (hour == 23 || !(totalCells % 2) && hour == 22) {
         hourlyForecastDiv.style.setProperty('--show', 'transparent')
       }
 
@@ -72,7 +73,6 @@ function renderDetails(data) {
 };
 
   for (const element in iconsArr) {
-    console.log(iconsArr[element].APIValue);
     const description = element;
     const APIvalue = data.days[0][iconsArr[element].APIValue];
     const unit = iconsArr[element].unit;
@@ -93,7 +93,6 @@ function renderDetails(data) {
 
 
 function render14D(data) {
-  // Icon, description, min-max temp
   nodes.dailyDiv.innerHTML = '';
   for (const day in data.days) if (day > 0) {
     const currentDay = data.days[day];
@@ -117,12 +116,3 @@ function render14D(data) {
 
   }
 }
-
-
-function renderFooter() {
-  const footer = document.createElement('div');
-  footer.classList.add('footer');
-  footer.textContent = 'Rick-Phoenix / The Odin Project 2024 / Weather API by VisualCrossing / Icons by VisualCrossing and Freepik.';
-  nodes.main.append(footer);
-}
-  
