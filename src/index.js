@@ -18,7 +18,7 @@ async function getWeatherData(place) {
   renderHourly(weatherData);
   renderDetails(weatherData);
   
-  nodes.body.style.setProperty('--pseudo', 'block');
+  nodes.body.style.setProperty('--pseudo', 'flex');
 } 
 
 function getIcon(name, type, format) {
@@ -110,6 +110,10 @@ function render14D(data) {
     const tempSpan = document.createElement('span');
     tempSpan.classList.add('temperature');
     tempSpan.textContent = `${tempmin}°-${tempmax}°`;
+
+    if (data.days.indexOf(currentDay) == 13 || data.days.indexOf(currentDay) == 14) {
+      dailyForecast.style.setProperty('--show', 'transparent');
+    }
 
     dailyForecast.append(icon, dateSpan, conditionsSpan, tempSpan);
     nodes.dailyDiv.append(dailyForecast);

@@ -40,7 +40,7 @@ header {
   width: 100%;
 
   div.logo {
-    background-color: aquamarine;
+    background-color: #b5f6e0;
     height: 10vh;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@ header {
     align-items: center;
     height: 15vh;
     background-color: azure;
-    padding: 30px;
+    padding: 20px;
     font-size: 25px;
   }
 }
@@ -64,39 +64,46 @@ main.hidden {
 }
 
 body::after {
+  background-color: #efefa240;
   content: 'Rick-Phoenix / The Odin Project 2024 / Weather API by VisualCrossing / Icons by VisualCrossing and Freepik.';
   text-align: center;
   grid-column: 1 / 4;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  width: 100%;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
   display: var(--pseudo, none);
 }
 
 main {
-  background-color: beige;
+  background-color: #efefa240;
   height: auto;
   display: grid;
-  grid: auto 20vh auto 5vh auto / 1fr 1fr;
-  padding: 15px 100px 70px;
+  grid: 7vh 20vh auto 5vh auto / 1fr 1fr;
+  padding: 15px 100px 15px;
   justify-items: center;
   gap: 30px;
   width: 100%;
 
-  h3 {
+  h3.title {
     grid-area: 1 / 1 / 2 / 4;
+  }
+
+  h3.daily {
+    grid-area: 4 / 1 / 5 / 4;
   }
 
   div.card {
     width: 100%;
     border-radius: 15px;
-    background-color: lightgray;
+    background-color: #eaeaea;
     padding: 20px;
     width: 100%;
   }
 
   div.dailyDiv::before {
     content: '';
-    background-color: red;
+    background: var(--show, linear-gradient(to top, rgba(0, 0, 255, 0) 0%, rgba(21, 21, 26, 0.5) 50%, rgba(0, 0, 255, 0) 100%));
     position: absolute;
     height: calc(100% - 30px);
     top: 15px;
@@ -106,7 +113,7 @@ main {
 
   div.singleDailyDiv::after {
     content: '';
-    background-color: var(--show, red);
+    background: var(--show, linear-gradient(to right, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%, rgba(0, 0, 255, 0) 100%));
     position: absolute;
     height: 2px;
     width: calc(100% + 15px);
@@ -117,13 +124,16 @@ main {
   div.card.dailyDiv {
     display: grid;
     grid: repeat(auto-fit, 100px) / 1fr 1fr;
-    gap: 10px;
+    gap: 15px;
     grid-area: 5 / 1 / 6 / 4;
     position: relative;
+    padding: 30px;
 
     div.singleDailyDiv {
       display: grid;
       grid: 50px 50px / 1fr 1fr 1fr;
+      align-items: center;
+      justify-items: center;
       position: relative;
 
       span.date {
@@ -145,7 +155,7 @@ main {
 
   div.hourlyDiv::before {
     content: '';
-    background-color: red;
+    background: var(--show, linear-gradient(to top, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%, rgba(0, 0, 255, 0) 100%));
     position: absolute;
     height: calc(100% - 30px);
     top: 15px;
@@ -155,7 +165,7 @@ main {
 
   div.hourlyForecast::after {
     content: '';
-    background-color: var(--show, red);
+    background: var(--show, linear-gradient(to right, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%, rgba(0, 0, 255, 0) 100%));
     position: absolute;
     height: 2px;
     width: calc(100% + 15px);
@@ -178,7 +188,6 @@ main {
       justify-items: center;
       height: 100px;
       width: 100%;
-      padding-right: 30px;
       position: relative;
   
       img.icon.hourly {
@@ -192,15 +201,10 @@ main {
   
       div.conditions {
         grid-area: 1 / 3 / 2 / 4;
-        justify-self: end;
-        align-self: end;
-        padding-bottom: 10px;
       }
   
       div.temperature {
         grid-area: 2 / 3 / 3 / 4;
-        align-self: start;
-      justify-self: end;
       }
     }
   }
@@ -212,8 +216,7 @@ main {
     top: 0;
     width: 2px;
     height: 100%;
-    background-color: red;
-
+    background: var(--show, linear-gradient(to top, rgba(0, 0, 255, 0) 0%, rgb(21 21 26 / 50%) 50%, rgba(0, 0, 255, 0) 100%));
   }
 
   div.card.detailsDiv {
